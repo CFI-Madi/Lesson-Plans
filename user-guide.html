@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CFI Training App User Guide</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --text: #18283a;
+      --muted: #58708a;
+      --line: #d6dfeb;
+      --accent: #d7971f;
+      --accent-2: #0d1e38;
+      --ok: #146c43;
+    }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #eef4fb 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+    .wrap {
+      width: min(920px, calc(100vw - 32px));
+      margin: 32px auto 56px;
+      display: grid;
+      gap: 20px;
+    }
+    .hero, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(13, 30, 56, .08);
+    }
+    .hero { padding: 28px; }
+    .hero h1 { margin: 0 0 8px; font-size: 2rem; color: var(--accent-2); }
+    .hero p { margin: 0; line-height: 1.6; color: var(--muted); }
+    .card { padding: 22px 24px; }
+    h2 { margin: 0 0 12px; color: var(--accent-2); font-size: 1.2rem; }
+    p, li { line-height: 1.6; }
+    ul, ol { margin: 0; padding-left: 20px; }
+    .tip {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(20, 108, 67, .08);
+      color: var(--ok);
+      border: 1px solid rgba(20, 108, 67, .16);
+    }
+    .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    code { background: #eef3f8; padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>CFI Training App Guide</h1>
+      <p>This guide covers the day-to-day workflows for managing students, lessons, endorsements, and backups in the aviation training app.</p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Getting Started</h2>
+        <ol>
+          <li>Use <strong>Add Student</strong> in the top bar to create a student profile.</li>
+          <li>Select the student from the student dropdown.</li>
+          <li>Open <strong>Lessons</strong> to begin marking progress.</li>
+          <li>Use <strong>Flight Log</strong> after each lesson to record flight time and notes.</li>
+        </ol>
+        <div class="tip">The dashboard becomes more useful as soon as you log flights, mark lesson signoffs, and record milestones.</div>
+      </article>
+
+      <article class="card">
+        <h2>Managing Students</h2>
+        <ul>
+          <li><strong>Add Student</strong> creates a new training record and makes that student active.</li>
+          <li><strong>Manage Student</strong> lets you switch, edit profile details, or delete a student.</li>
+          <li>Profile fields like start date, certificate number, and medical expiration improve dashboard insight and endorsement generation.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Lessons And Progress</h2>
+        <ul>
+          <li>Open a lesson from the sidebar or search bar.</li>
+          <li>Use the lesson competency pills to move from introduced to signed off.</li>
+          <li>Signed-off lessons automatically contribute to dashboard readiness and lesson completion metrics.</li>
+          <li>Use lesson notes and checklists for student-specific coaching details.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Flight Log</h2>
+        <ul>
+          <li>Use <strong>Log Flight Session</strong> to add a new entry.</li>
+          <li>Record aircraft, lesson, landings, ground time, flight time, and notes.</li>
+          <li>You can edit or delete entries from the Flight Log table.</li>
+          <li>Dashboard totals update automatically after each change.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Endorsements</h2>
+        <ul>
+          <li>Use the tracker to mark required endorsements complete.</li>
+          <li>Use the generator to build endorsement text from FAA guidance.</li>
+          <li>Copy the generated endorsement text into your preferred document or logbook workflow.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Reading The Dashboard</h2>
+        <ul>
+          <li><strong>Stats row</strong>: flights, time, lesson progress, and signoffs.</li>
+          <li><strong>Next lesson</strong>: suggested lesson based on current progress.</li>
+          <li><strong>Readiness cards</strong>: training progress toward checkride preparation.</li>
+          <li><strong>Recent activity</strong>: latest flights and recently visited lessons.</li>
+          <li><strong>Personal minimums</strong>: student-specific operational limits.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Backup And Restore</h2>
+      <ol>
+        <li>Open <strong>Settings</strong>.</li>
+        <li>Choose <strong>Export Backup</strong> to save a recovery file.</li>
+        <li>Store the exported <code>.json</code> file somewhere safe.</li>
+        <li>Use <strong>Import / Restore</strong> to merge a saved backup into the app.</li>
+      </ol>
+      <p>The app now keeps a local recovery snapshot before restore so accidental imports are easier to recover from.</p>
+      <div class="tip">Best practice: export a backup before major updates, before restoring another file, and at least once every couple of weeks during active training.</div>
+    </section>
+
+    <section class="card">
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li>If the app warns that some saved data was repaired, review your students and restore the latest backup if needed.</li>
+        <li>If the Dashboard or Flight Log looks unavailable, refresh the page first. The app keeps a vanilla fallback for those views.</li>
+        <li>If you use a hosted copy, open it over <code>http://</code> or <code>https://</code> rather than directly as a local file path.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
